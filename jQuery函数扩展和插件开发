@@ -1,4 +1,4 @@
-jQuery函数扩展和插件开发：
+=================================jQuery函数扩展========================================
 
 1.函数扩展：
 
@@ -31,3 +31,36 @@ $.extend({
         }
     });
 })(jQuery)
+
+调用方式：
+$.add(1, 3);// 返回4
+=================================jQuery插件开发========================================
+要实现DOM操作的插件开发我们需要这么写：
+;(function($){
+    $.fn.setCss = function() {
+        this.attr("color", "red");
+    };
+})(jQuery)
+
+调用方式：
+
+$("#myDiv").setCss();
+
+以上是最基本的，在此基础上扩展：
+
+;(function($){
+    var SetCss = function() {
+    
+    };
+    SetCss.
+    $.fn.setCss = function() {
+        this.attr("color", "red");
+    };
+})(jQuery)
+
+
+
+
+
+
+
