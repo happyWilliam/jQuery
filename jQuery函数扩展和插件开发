@@ -1,0 +1,33 @@
+jQuery函数扩展和插件开发：
+
+1.函数扩展：
+
+最简单的方式：
+$.add = function(a, b) {
+    return a + b;
+};
+
+当要多个函数扩展时可以使用$.extend()方法
+$.extend({
+    add: function(a, b) {
+        return a + b;
+    },
+    reduce: function(a, b){
+        return a - b;
+    }
+});
+
+当然这些需要写在一个单独的文件中或者封装在一个自执行闭包函数当中：
+
+// ;是为了防止前面的js代码没有正确使用;结束，如果不加可能报错
+// 使用$引用jQuery对象，一方面是为了避免$变量和别的对象冲突，一方面是使用本地变量查询作用域链不用到外层查找jQuery对象，提高效率
+;(function($){
+    $.add = function(a, b) {
+        return a + b;
+    };
+    $.extend({
+        reduce: function(a, b){
+            return a - b;
+        }
+    });
+})(jQuery)
